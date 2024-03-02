@@ -84,7 +84,7 @@
         if (signaturePad.isEmpty()) {
           alert("Please provide a signature first.");
         } else {
-          var dataURL = signaturePad.toDataURL();
+          var dataURL = signaturePad.toDataURL("image/png");
           download(dataURL, "signature.png");
         }
       });
