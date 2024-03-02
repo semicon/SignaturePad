@@ -84,34 +84,17 @@
         if (signaturePad.isEmpty()) {
           alert("Please provide a signature first.");
         } else {
-          var dataURL = signaturePad.toDataURL("image/png");
-          //download(dataURL, "signature.png");
-          var a = document.createElement("a");
-        a.style = "display: none";
-        a.href = dataURL;
-        a.download = "signature.png";
-      
-        document.body.appendChild(a);
-        a.click();
-      
-        document.body.removeChild(a);
+          const dataURL = signaturePad.toDataURL("image/png");
+          const a = document.createElement("a");
+          a.style = "display: none";
+          a.href = dataURL;
+          a.download = "signature.png";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
         }
       });
-
-      /**Download signature */
-      function download(dataURL, filename) {
-        var blob = dataURLToBlob(dataURL);
-        var url = window.URL.createObjectURL(blob);
-        var a = document.createElement("a");
-        a.style = "display: none";
-        a.href = url;
-        a.download = filename;
       
-        document.body.appendChild(a);
-        a.click();
-      
-        window.URL.revokeObjectURL(url);
-      }
     </script>
   </body>
 </html>
